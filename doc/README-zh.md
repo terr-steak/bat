@@ -150,7 +150,7 @@ git show v0.6.0:src/main.rs | bat -l rs
 
 ```bash
 batdiff() {
-    git diff --name-only --diff-filter=d | xargs bat --diff
+    git diff --name-only --diff-filter=d -z | xargs --null bat --diff
 }
 ```
 
@@ -372,7 +372,7 @@ scoop install bat
 
 ### 从源码编译
 
-如果你想要自己构建`bat`，那么你需要安装有高于1.70.0版本的 Rust。
+如果你想要自己构建`bat`，那么你需要安装有高于1.74.0版本的 Rust。
 
 使用以下命令编译。
 
@@ -401,8 +401,8 @@ bat --list-themes | fzf --preview="bat --theme={} --color=always /path/to/file"
 `bat` 自带三个 [8-bit 色彩](https://en.wikipedia.org/wiki/ANSI_escape_code#Colors) 主题：
 
 - `ansi` 适应于大部分终端。它使用 3-bit 色彩：黑红绿黄蓝洋红靛青白。
-- `base16`专为 [base16](https://github.com/chriskempson/base16) 终端设计。它使用 4-bit 色彩（带有亮度的 3-bit 色彩）。根据 [base16 styling guidelines](https://github.com/chriskempson/base16/blob/master/styling.md) 制作。
-- `base16-25`专为 [base16-shell](https://github.com/chriskempson/base16-shell) 设计。它把部分亮色替换为 8-bit 色彩。请不要直接使用该主题，除非你清楚你的256色终端是否使用 base16-shell。
+- `base16`专为 [base16](https://github.com/tinted-theming/home) 终端设计。它使用 4-bit 色彩（带有亮度的 3-bit 色彩）。根据 [base16 styling guidelines](https://github.com/tinted-theming/home/blob/main/styling.md) 制作。
+- `base16-25`专为 [base16-shell](https://github.com/tinted-theming/base16-shell) 设计。它把部分亮色替换为 8-bit 色彩。请不要直接使用该主题，除非你清楚你的256色终端是否使用 base16-shell。
 
 尽管这些主题具有诸多限制，但具有一些 truecolor 主题不具有的三个优点：
 
